@@ -1,4 +1,5 @@
-loc <- read.csv('shiny/sigun_code.csv', fileEncoding = 'UTF-8')
+setwd("C:/workspace/R/shiny")
+loc <- read.csv('./01_code/sigun_code/sigun_code.csv', fileEncoding = 'UTF-8')
 
 # 1단계 수집 대상 지역 설정
 loc$code <- as.character(loc$code)
@@ -46,7 +47,7 @@ library(stringr)
 raw_data <- list() # XML 임시 저장소
 root_Node <- list() # 거래 내역 추출 임시 저장소
 total <- list() # 거래 내역 정리 임시 저장소
-dir.create("shiny/02_raw_data") # 새로운 폴더 만들기
+dir.create("./02_raw_data") # 새로운 폴더 만들기
 
 # 5-1. url요청 xml응답
 for (i in 1:length(url_list)){ 
@@ -84,17 +85,17 @@ for (i in 1:length(url_list)){
   # 응답내역 저장
   region_nm <- subset(loc, code == str_sub(url_list[i], 115, 119))$addr_1 # 지역명
   month <- str_sub(url_list[i], 130, 135) # 연월(YYYYMM)
-  path <- as.character(paste0("shiny/02_raw_data/", region_nm, "_", month, ".csv"))
+  path <- as.character(paste0("./02_raw_data/", region_nm, "_", month, ".csv"))
   write.csv(apt_bind, path) # csv 저장
   msg <- paste0("[", i, "/", length(url_list), "] 수집한 데이터를 [", path, "]에 저장합니다.") # 알림 메시지
   cat(msg, "\n\n")
 }
 
-files <- dir('shiny/02_raw_data')
+files <- dir('./02_raw_data')
 library(plyr)
-apt_price <- ldply(as.list(paste0("shiny/02_raw_data/", files)), read.csv, fileEncoding="UTF-8") # 결합
+apt_price <- ldply(as.list(paste0("./02_raw_data/", files)), read.csv, fileEncoding="UTF-8") # 결합
 tail(apt_price, 2) # 확인
 
-dir.create('shiny/03_integrated')
-save(apt_price, file = "shiny/03_integrated/03_apt_price.rdata") # 저장
-write.csv(apt_price, "shiny/03_integrated/03_apt_price.csv")
+dir.create('./03_integrated')
+save(apt_price, file = "./03_integrated/03_apt_price.rdata") # 저장
+write.csv(apt_price, "./03_integrated/03_apt_price.csv")
