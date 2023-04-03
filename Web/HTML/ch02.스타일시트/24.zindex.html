@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute; /* 절대좌표 */
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            font-size: 20px;
+        }
+        /* 클래스 스타일을 지정하지 않으면 겹쳐서 출력 */
+        .a {
+            left: 50px;
+            top: 50px;
+            background: #ff0000;
+            z-index: 1; /* z-index: 레이어 층, 높은숫자가 가장 위 */
+        }
+        .b {
+            left: 120px;
+            top: 70px;
+            background: #ffff00;
+            z-index: 3;
+        }
+        .c {
+            left: 70px;
+            top: 110px;
+            background: #0000ff;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">div 1</div>
+    <div class="b">div 2</div>
+    <div class="c">div 3</div>
+</body>
+</html>

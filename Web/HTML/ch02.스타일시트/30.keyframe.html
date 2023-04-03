@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: relative; /* 상대적 배치 */
+            animation: 2s myanim; /* 애니메이션 객체를 2초간격으로 실행 */
+            animation-iteration-count: 5; /* 반복횟수 */
+        }
+        /* 애니메이션 객체 생성 */
+        @keyframes myanim {
+            /* 시점 { 위치정보 } */
+            0% { left: 0px; top: 0px; }
+            25% { left: 0px; top: 500px; }
+            50% { left: 500px; top: 500px; }
+            75% { left: 500px; top: 0px; }
+            100% { left: 0px; top: 0px; }
+        }
+    </style>
+</head>
+<body>
+    <img src="../images/strawberry.jpg" width="30%" height="30%">
+</body>
+</html>

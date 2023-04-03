@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header {
+            background-color: cyan;
+            width: 100%;
+            height: 50px;
+        }
+        #nav {
+            background-color: blue;
+            width: 20%;
+            height: 300px;
+            float: left; /* float이 없으면 contents가 nav밑으로 내려감 */
+        }
+        #contents {
+            background-color: green;
+            width: 80%;
+            height: 300px;
+            float: right;
+        }
+        /* header밑의 공간을 nav와 contents가 float으로 나눠서 가져감 */
+        #footer {
+            background-color: aqua;
+            width: 100%;
+            height: 50px;
+            clear: both; /* float을 초기화 시키고 밑의 공간을 확보 */
+        }
+    </style>
+</head>
+<body>
+    <div id="header">header</div>
+    <div id="nav">nav</div>
+    <div id="contents">contents</div>
+    <div id="footer">footer</div>
+</body>
+</html>
