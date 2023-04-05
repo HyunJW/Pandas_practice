@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // x,y 원점의 좌표
+        // arc(x,y,반지름,시작각도,끝각도,antiClockwise)
+        // antiClockwise - true: 반시계방향, false: 시계방향
+        function init(){
+            canvas = document.getElementById('myCanvas');
+            context = canvas.getContext('2d');
+            context.beginPath();
+            context.arc(100,100,80,0,2*Math.PI,false);
+            context.fillStyle="red";
+            context.fill();
+            context.beginPath();
+            context.arc(200,200,60,1*Math.PI,0,false);
+            context.fillStyle="blue";
+            context.fill();
+        }
+    </script>
+    <style>
+        body { margin: 0; }
+    </style>
+</head>
+<body onload="init()">
+    <canvas id="myCanvas" width="500px" height="300px"></canvas>
+</body>
+</html>

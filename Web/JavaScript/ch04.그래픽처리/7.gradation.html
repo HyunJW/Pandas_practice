@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function init(){
+            let canvas = document.getElementById('myCanvas');
+            let context = canvas.getContext('2d');
+            // 선형 그래디언트 효과 x,y,x1,y1
+            let grad = context.createLinearGradient(0,0,200,0);
+            grad.addColorStop(0, 'aqua');
+            grad.addColorStop(0.25, 'green');
+            grad.addColorStop(0.5, 'red');
+            grad.addColorStop(0.75, 'pink');
+            grad.addColorStop(1, 'blue');
+            context.fillStyle=grad;
+            context.fillRect(10,10,180,90);
+        }
+    </script>
+</head>
+<body onload="init()">
+    <canvas id="myCanvas" width="300" height="200"></canvas>
+</body>
+</html>
